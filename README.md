@@ -137,4 +137,80 @@ Let's jump to each deep dive question.
 ![image](https://user-images.githubusercontent.com/89758536/223040470-d14296c0-ac04-42a7-8c9e-195249fe8945.png)
   The most sold furnitures across each state are bed bath table, furniture decor, health beauty, and sports leisure. Bed bath table dominate the sales on top 5 states which are SP, RJ, MG, RS, and PR.
   
-* What times, days, and month are the orders most occurred?
+* What times, days, and month are the orders most occurred?<br><br>
+![image](https://user-images.githubusercontent.com/89758536/223061274-d7a6a214-461b-475a-869a-e8730d04a50d.png)<br><br>
+![image](https://user-images.githubusercontent.com/89758536/223065863-43ff0490-ec3c-4eb9-a717-f2fd0ffccd1f.png)<br><br>
+![image](https://user-images.githubusercontent.com/89758536/223066247-2254b66c-b720-4508-8db5-7d8245f33417.png)<br><br>
+
+There are several times that has the highest order activity record. In terms of hours, the peak hours are around 10 AM - 3 PM and around 8 PM. In terms of day of the week, the order activity is declining from the highest peak which is monday all the way down until saturday which is the lowest activity recorded. In terms of days, There are several peaks which is around 5th, 15th, and 25th of the month.<br>
+
+* What is the average time of delivery?<br><br>
+![image](https://user-images.githubusercontent.com/89758536/223069378-583e4903-972c-49aa-9a4e-0f63f2e8ced7.png)<br><br>
+From the figure above we could see that The average delivery time is 10 days while the average estimated delivery time is around 20 days. It means the courier had exceeded the expectation of estimated delivery time and could do their job better than expected.<br>
+
+## RFM Analysis
+The “RFM” in RFM analysis stands for recency, frequency and monetary value. RFM analysis is a way to use data based on existing customer behavior to predict how a new customer is likely to act in the future. An RFM model is built using three key factors: 
+
+ * Recency value: This refers to the amount of time since a customer’s last interaction with a brand, which can include their last purchase, a visit to a website, use of a mobile app, a “like” on social media and more. Recency is a key metric because customers who have interacted with your brand more recently are more likely to respond to new marketing efforts.
+
+ * Frequency value: This refers to the number of times a customer has made a purchase or otherwise interacted with your brand during a particular period of time. Frequency is a key metric because it shows how deeply a customer is engaged with your brand. Greater frequency indicates a higher degree of customer loyalty.
+
+ * Monetary value: This refers to the total amount a customer has spent purchasing products and services from your brand over a particular period of time. Monetary value is a key metric because the customers who have spent the most in the past are more likely to spend more in the future.
+
+After doing RFM Analysis, we could cluster the customer into 5 main categories which are:
+ 1. The first one is new_customer which categorize customers who recently made a purchase but the frequency is still quite low.
+ 2. The second one is inactive which categorize customers who haven't made a purchase in a long time and are considered inactive.
+ 3. The third one is at_Risk. There are customers who are at risk of becoming inactive or churning.
+ 4. The fourth one is loyal customer. This category categorize customers who has high recency and high frequency means they are frequently visiting our store and least likely to go to our rival.
+ 5. The last is champion which means they are our loyal customer who spend most money in our store.<br><br>
+ 
+ Below is the distribution of each category and the means score of each RFM score for each category.<br><br>
+ ![image](https://user-images.githubusercontent.com/89758536/223073520-e6a4e058-b4bc-4ca3-867a-8648af157a02.png)<br><br>
+ ![image](https://user-images.githubusercontent.com/89758536/223073633-f1b6cdaa-cc67-4cbf-9797-29dc20bea91c.png)
+
+## Data Preprocessing
+### Feature Engineering
+Not every features will be used in creating machine learning model. I will only keep several features which are: customer_city, review_score, seller_id, price, freight_value, product_category_name, payment_type, and payment_value. I also will add two features which are actual time delivery and estimated time delivery.
+
+### Preprocessing Categorical Variables
+There are 4 columns with categorical variables which are customer_city, product_category_name, payment_type, and Segment. customer_city and product_category_name have a lot of unique value which are around 4071 and 71 values. This values is quite big to be handled using one hot encoding so instead we will use frequency encoding. For payment_type we will use one hot encoding, and for Segment we will use ordinal encoding.
+
+## Classification Prediction Modelling
+* The dataset split into 80:20 with 80% is training data and 20% is test data
+* Because the target is imbalance. Then we can't use accuracy as the metric. We want to minimize false positive and false negative rate because we don't want to incorrectly predict the customer category so we will use recall, precision, and f1-score as our metric.
+* The best algorithm is XGBoost which gives us precision, recall, and f1-score of 78%, 73%, and 75%
+* It means we can correctly predict customer category therefore we could make a correct approach which we have covered in previous section in RFM analysis based on this model's prediction. For example, <br><br>
+ ![image](https://user-images.githubusercontent.com/89758536/223085275-0435efea-a797-4874-bbed-b17c531860c2.png)
+
+## Conclusion and Recommendation
+* 80% of the sales contributed by only 6 states of 27 states. Those 6 states are: 
+    1. SP (Sao Paulo), 
+    2. RJ (Rio de Janeiro), 
+    3. MG (Minas Gerais), 
+    4. RS (Rio Grande do Sul), 
+    5. PR (Paraná),  
+    6. SC (Santa Catarina).
+    
+  The marketing team can focus their effort more in these states.
+* Across 71 products, 50% of the sales could be covered by only 7 products. Those 7 products are: 
+    1. Bed Bath Table, 
+    2. Health Beauty, 
+    3. Sports Leisure, 
+    4. Furniture Decor, 
+    5. Computers Accessories, 
+    6. Housewares, 
+    7. Watches_gifts.
+    
+  Based on this insight the company can focus more on producing this type of products and the marketing team can market these products more
+* Paraiba has the highest average spending value, Sao Paulo on the other hand lies on the other end of the same spectrum.
+* the most sold furnitures across each state are bed bath table, furniture decor, health beauty, and sports leisure. Bed bath table dominate the sales on top 5 states which are SP, RJ, MG, RS, and PR. The company can focus the item's stock of those 5 states with bed bath table.
+* There are several times that has the highest order activity record. In terms of hours, the peak hours are around 10 AM - 3 PM and around 8 PM. In terms of day of the week, the order activity is declining from the highest peak which is monday all the way down until saturday which is the lowest activity recorded. In terms of days, There are several peaks which is around 5th, 15th, and 25th of the month. The marketing team can focus their campaign or advertisment on these day/time.
+* The actual delivery time mostly faster than the estimated delivery time meaning the logistic partner did a good job.
+* Based on RFM Analysis, the customer can be clustered into 5 categories which are:
+    * New customer: customers who recently made a purchase but the frequency is still quite low. We can target them with discount/promo to make them engaged with us,
+    * Inactive: customers who haven't made a purchase in a long time and are considered inactive, we could send them a survey or personalized email to ask them if they disastified with our service so we could get them back,
+    * at Risk: customers who are at risk of becoming inactive or churning. We can treat them the same like inactive customers while also give them some promo to keep them engaged with us.
+    * Loyal customer: customers who has high recency and high frequency means they are frequently visiting our store and least likely to go to our rival. We could offer them some personalized recommendation and gives them some kind of membership to encourage them to buy more product so they can level up their membership status.
+    * Champion: our loyal customer who spend most money in our store. Treat them with our biggest services!!
+    
+* The best model to predict customer's category is using XGBoost which could correctly predict 75% of customer category. This model could help us to correctly gives each customer their respective treatment which means we could increase profit and minimize losses. For example, Let's assume the cost to advertise to one customer is 10 dollars. From 1000 customers who become inactive, we can predict around 75 percent of them correctly which means the company could save around 750 dollars of cost. This 750 dollars could be used to focus on other categories that need prioritized more. 
