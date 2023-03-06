@@ -77,3 +77,64 @@ Eighth is sellers_dataset.csv which contains information about seller who sold t
 Last is product_category_name_translation which contains information about product's name in english.
   * 'product_category_name' : product's name (Portuguese), 
   * 'product_category_name_english' : product's name (English).
+  
+## Data Modelling Outline
+The following are a few steps in the modeling technique used on this project:
+1. Import Modules/Packages.
+2. Import Dataset.
+3. Data Cleaning.
+4. Exploratory Data Analysis (EDA).
+5. RFM Analysis.
+6. Data Preprocessing.
+7. Prediction Modelling.
+8. Conclusion & Recommendation.
+
+## Load the dataset
+As mentioned above, the dataset consists of 7 sub datasets. Those 7 sub datasets will be merged into one big dataframe. The final dataframe will consists of total rows of 113,193 rows and 40 columns.
+
+## Data Cleaning
+Data cleaning is used to identify data that has a NaN value so that it can be processed further using machine learning modeling. The missing values of dataset orders_dataset and product_dataset are relatively small so we could just get rid of it. But the order_reviews dataset has so many missing values that we couldn't just remove it. So for now we will fill the missing values with 'No Reviews'.
+
+## Exploratory Data Analysis (EDA)
+Before we jump into the EDA. First we will set several deep dive question.
+ * What state does give the most customer?
+ * What product is the most sold?
+ * What is the average spending of each state?
+ * What is the most sold product on each state?
+ * What times, days, and month are the orders most occurred?
+ * What is the average time of delivery?
+
+Let's jump to each deep dive question.
+ 
+* What state does give the most customer? <br><br>
+<img src="https://user-images.githubusercontent.com/89758536/223034523-367f9844-4265-4051-b96d-d91b37b60fec.png" width="1000"> <br>
+  According to pareto rule. The object that falls below 80% cut off line are 'vital few' factors that affect selling the most. As we can see the state that gives the most customer are:
+  1. SP (Sao Paulo),
+  2. RJ (Rio de Janeiro),
+  3. MG (Minas Gerais),
+  4. RS (Rio Grande do Sul),
+  5. PR (Paraná), 
+  6. SC (Santa Catarina). 
+
+  Those states alone contributes to 80% of the customer.
+  
+* What product is the most sold? <br><br>
+![image](https://user-images.githubusercontent.com/89758536/223039596-de1a7726-a170-426b-933e-c6ff3bbb1d02.png)
+  7 of 71 products sold already cover over than 50% of the sales. Those 7 products are:
+  1. Bed Bath Table, 
+  2. Health Beauty, 
+  3. Sports Leisure,
+  4. Furniture Decor,
+  5. Computers Accessories,
+  6. Housewares,
+  7. Watches_gifts.
+
+* What is the average spending of each state? <br><br>
+![image](https://user-images.githubusercontent.com/89758536/223040051-d528e0b9-d8be-4ee6-91fa-c4f35fb3f13b.png)
+  Paraiba has the highest average spending value, Sao Paulo on the other hand lies on the other end of the same spectrum.
+
+* What is the most sold product on each state?
+![image](https://user-images.githubusercontent.com/89758536/223040470-d14296c0-ac04-42a7-8c9e-195249fe8945.png)
+  The most sold furnitures across each state are bed bath table, furniture decor, health beauty, and sports leisure. Bed bath table dominate the sales on top 5 states which are SP, RJ, MG, RS, and PR.
+  
+* What times, days, and month are the orders most occurred?
