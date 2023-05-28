@@ -60,7 +60,7 @@ Sixth is orders_dataset.csv which contains information of the order itself.
 Seventh is products_dataset.csv which contains the product information itself.
   * 'product_id' : product ID, 
   * 'product_category_name' : product name (Portuguese), 
-  * 'product_name_lenght' : product name length,
+  * 'product_name_length' : product name length,
   * 'product_description_length' : product description length, 
   * 'product_photos_qty' : Photo quantity of product, 
   * 'product_weight_g' : product weight,
