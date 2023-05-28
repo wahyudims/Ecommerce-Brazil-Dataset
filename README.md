@@ -22,7 +22,7 @@ Second is geolocation_dataset.csv which contains information about cities and st
   * 'geolocation_city' : city name, 
   * 'geolocation_state : state name'.
   
-Third is order_item_dataset.csv which contains information of item purchased
+Third is order_item_dataset.csv which contains information of item purchased.
   * 'order_id' : order ID, 
   * 'order_item_id' : sequential number of order, 
   * 'product_id' : product unique identifier, 
