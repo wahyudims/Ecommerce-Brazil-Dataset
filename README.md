@@ -38,7 +38,7 @@ Fourth is order_payments_dataset.csv which contains information of payments for 
   * 'payment_installments' : number of installment, 
   * 'payment_value' : payment value.
   
-Fifth is order_reviews_dataset which contains information of review for each order.
+Fifth is order_reviews_dataset.csv which contains information of review for each order.
   * 'review_id' : review ID, 
   * 'order_id' : order ID, 
   * 'review_score' : review score from 1-5,
@@ -47,7 +47,7 @@ Fifth is order_reviews_dataset which contains information of review for each ord
   * 'review_creation_date' : review date sent to customer,
   * 'review_answer_timestamp' : review date answered.
   
-Sixth is orders_dataset which contains information of the order itself.
+Sixth is orders_dataset.csv which contains information of the order itself.
   * 'order_id' : order ID, 
   * 'customer_id' : customer ID, 
   * 'order_status' : order status (delivered, shipped, etc.),
@@ -57,11 +57,11 @@ Sixth is orders_dataset which contains information of the order itself.
   * 'order_delivered_customer_date' : order delivered to customer date, 
   * 'order_estimated_delivery_date' : order delivered date.
   
-Seventh is products_dataset which contains the product information itself.
+Seventh is products_dataset.csv which contains the product information itself.
   * 'product_id' : product ID, 
   * 'product_category_name' : product name (Portuguese), 
   * 'product_name_lenght' : product name length,
-  * 'product_description_lenght' : product description length, 
+  * 'product_description_length' : product description length, 
   * 'product_photos_qty' : Photo quantity of product, 
   * 'product_weight_g' : product weight,
   * 'product_length_cm' : product length, 
@@ -74,7 +74,7 @@ Eighth is sellers_dataset.csv which contains information about seller who sold t
   * 'seller_city' : seller city name,
   * 'seller_state' : seller state name.
   
-Last is product_category_name_translation which contains information about product's name in english.
+Last is product_category_name_translation.csv which contains information about product's name in english.
   * 'product_category_name' : product's name (Portuguese), 
   * 'product_category_name_english' : product's name (English).
   
